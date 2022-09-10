@@ -8,6 +8,9 @@ const UNSPLASH_API_URL = 'https://api.unsplash.com';
 
 const App = () => {
   const [word, setWord] = useState('');
+  const [images, setImages] = useState([]);
+
+  console.log(images);
 
   const handleSearchSubmit = (event) => {
     event.preventDefault();
@@ -17,7 +20,7 @@ const App = () => {
     )
       .then((result) => result.json())
       .then((data) => {
-        console.log(data);
+        setImages([data, ...images]);
       })
       .catch((err) => {
         console.log(err);

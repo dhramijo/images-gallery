@@ -29,11 +29,7 @@ const App = () => {
   return (
     <div>
       <Header title="Images Gallery" />
-      <Search
-        word={word}
-        setWord={setWord}
-        handleSubmit={handleSearchSubmit}
-      />
+      <Search word={word} setWord={setWord} handleSubmit={handleSearchSubmit} />
     </div>
   );
 };

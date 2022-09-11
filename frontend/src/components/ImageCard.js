@@ -11,7 +11,7 @@ const ImageCard = ({ image, deleteImage }) => {
       />
       <Card.Body>
         <Card.Title>{image.title.toUpperCase()}</Card.Title>
-        <Card.Text style={{ width: '100%', height: '5rem' }}>
+        <Card.Text style={{ width: '100%', height: '8rem' }}>
           {image.description || image.alt_description}
         </Card.Text>
         <Button variant="primary" onClick={() => deleteImage(image.id)}>

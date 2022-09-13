@@ -1,7 +1,7 @@
 # Image name
 FROM python:3.10
 
-# image directory
+# image directory in docker container
 WORKDIR /app
 
 # port

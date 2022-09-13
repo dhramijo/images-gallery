@@ -5,7 +5,14 @@ services:
     build: ./frontend
     ports:
       - '3000:3000'
+    # ./frontend is local folder, which is mapped to the container project folder /app
+    # Changes in local ./frontend will override content of container's /app folder
+    volumes:
+      - /app/node_module
+      - ./frontend:/app
   api:
     build: ./api
     ports:
       - '5050:5050'
+    volumes:
+      - ./api:/app

@@ -1,4 +1,3 @@
-from crypt import methods
 import os
 import requests
 from flask_cors import CORS
@@ -60,6 +59,18 @@ def images():
         result = images_collection.insert_one(image)
         inserted_id = result.inserted_id
         return {"inserted_id": inserted_id}
+
+
+@app.route("/images/<image_id>", methods={"DELETE"})
+def delete_image(image_id):
+    if request.method == "DELETE":
+        # delete image from database
+        result = images_collection.delete_one({"_id": image_id})
+        if not result:
+            return {"error": "Image was not deleted. Please try again"}, 500
+        if result and not result.deleted_count:
+            return {"error": "Image not found"}, 404
+        return {"deleted_id": image_id}
 
 
 if __name__ == "__main__":
